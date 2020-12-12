@@ -71,7 +71,6 @@ class View():
         root.maxsize(root.winfo_width(), root.winfo_height())
 
     def writeFields(self, data, root):
-        print("Writing fields")
         # Write Data
         self.temp_field.insert(1, data.getTemperature())
         self.temp_field.insert(4, " C°    ")
@@ -99,14 +98,9 @@ class View():
         else:
             self.pump_field.insert(1, "Off")
 
-        print(str(data.getTemperature()) + "||" + str(data.getHumidity()) + "||" + str(data.getFan()) + "||" + str(
-            data.getHeater()) + "||" + str(data.getPump()))
-        print("Write fields method end")
         root.update()
 
     def cleanFields(self):
-        print("--------------------------------------------")
-        print("Cleaning fields")
         # Clean Fields
         self.temp_field.delete(0, 11)
         self.humi_field.delete(0, 11)

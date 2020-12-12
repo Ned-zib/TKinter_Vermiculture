@@ -11,14 +11,14 @@ void loop() {
   int rand_fan  = random(0, 3);
   int rand_pump = random(0, 2);
   
-  Serial.print("D");
-  Serial.print(rand_temp*100,0);
-  Serial.print(rand_humi*100,0);
+//  Serial.print("D");
+//  Serial.print(rand_temp*100,0);
+//  Serial.print(rand_humi*100,0);
+//  
+//  Serial.print(rand_heat);
+//  Serial.print(rand_fan);
+//  Serial.println(rand_pump);
   
-  Serial.print(rand_heat);
-  Serial.print(rand_fan);
-  Serial.println(rand_pump);
-  
-  delay(1000);
+  delay(50);
 
 }

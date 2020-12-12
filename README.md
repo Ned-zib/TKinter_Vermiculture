@@ -29,7 +29,8 @@ The entire system is in a box, half full of organic material and also the worms,
 - Run the controller.py file
 
 ### Actual Issues
-  - The TK window is a bit stuck sometimes but the update of the data has been fixed
+- If the serial port does not send any data the system goes stuck
+- The Get and Write (in Tk) Serial data system use a recursive method in order to don't stuck the Tk loop, so this can reach the Recursion limit (10.000) and raise an stack overflow fatal error is not posible set this recursion limit to infinite, and the system can't be change to a loop
 ### Future 
   - Turn the system to an IOT based monitor and control system
 

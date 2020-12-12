@@ -45,16 +45,21 @@ class serialData():
         self.serial_port = serial_port
 
     def get_data(self):
-        serial_data = self.serial_port.read()
-        if serial_data == b'D':
-            data_temp = self.serial_port.read(4)
-            data_humi = self.serial_port.read(4)
-            data_heat = self.serial_port.read(1)
-            data_fan = self.serial_port.read(1)
-            data_pump = self.serial_port.read(1)
-            self.data.setData(int(data_temp), int(data_humi), int(
-                data_fan), int(data_heat), int(data_pump))
-            return self.data
+        try:
+            serial_data = self.serial_port.read()
+            if serial_data == b'D':
+                data_temp = self.serial_port.read(4)
+                data_humi = self.serial_port.read(4)
+                data_heat = self.serial_port.read(1)
+                data_fan = self.serial_port.read(1)
+                data_pump = self.serial_port.read(1)
+                self.data.setData(int(data_temp), int(data_humi), int(
+                    data_fan), int(data_heat), int(data_pump))
+                self.serial_port.reset_input_buffer()
+                return self.data
+        except:
+            self.serial_port.reset_input_buffer()
+        
 
     def close_port(self):
         self.serial_port.close()
