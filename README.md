@@ -29,7 +29,7 @@ The entire system is in a box, half full of organic material and also the worms,
 - Run the controller.py file
 
 ### Actual Issues
-  - The updating of the information on the TKinter window is not working yet
+  - The TK window is a bit stuck sometimes but the update of the data has been fixed
 ### Future 
   - Turn the system to an IOT based monitor and control system
 

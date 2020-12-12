@@ -14,19 +14,19 @@ class Controller():
 
     def run(self):
         self.serial_data.serial_connect(self.root)
-        self.root.after(100, self.set_data())
+        self.root.after(1, self.set_data())
         self.root.mainloop()
 
     def set_data(self):
-        self.data = self.serial_data.get_data()
-        if self.data:
-            self.view.cleanFields()
-            self.view.writeFields(self.data)
-        self.root.after(5000, self.set_data())
-
-    def get_instance(self):
-        return self
-
+        try:
+            self.data = self.serial_data.get_data()
+            if self.data:
+                self.view.cleanFields()
+                self.view.writeFields(self.data, self.root)
+        except:
+            pass
+        self.root.after(1, self.set_data())
+        
 
 if __name__ == "__main__":
     # running controller function

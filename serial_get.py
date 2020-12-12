@@ -10,10 +10,11 @@ class serialData():
     def __init__(self, data):
         self.serial_port = ""
         self.data = data
-        self.control = 0
+        self.connected = 0
 
     def serial_connect(self, root):
-        serial_port_name = simpledialog.askstring("", "Serial port (TTY or COM)")
+        serial_port_name = simpledialog.askstring(
+            "", "Serial port (TTY or COM)")
         if serial_port_name:
             print(serial_port_name)
         else:
@@ -21,14 +22,17 @@ class serialData():
             sys.exit()
         try:
             serial_port = serial.Serial(serial_port_name, 9600)
+            self.connected = 1
         except:
             print("Serial Connection Failed")
             messagebox.showerror("Error", "Serial Connection Failed")
             while True:
                 try:
-                    serial_port_name = simpledialog.askstring("", "Serial port (TTY or COM)")
+                    serial_port_name = simpledialog.askstring(
+                        "", "Serial port (TTY or COM)")
                     if serial_port_name:
                         serial_port = serial.Serial(serial_port_name, 9600)
+                        self.connected = 1
                     else:
                         root.destroy()
                         sys.exit()
@@ -47,5 +51,6 @@ class serialData():
             data_heat = self.serial_port.read(1)
             data_fan = self.serial_port.read(1)
             data_pump = self.serial_port.read(1)
-            self.data.setData(int(data_temp), int(data_humi), int(data_fan), int(data_heat), int(data_pump))
+            self.data.setData(int(data_temp), int(data_humi), int(
+                data_fan), int(data_heat), int(data_pump))
             return self.data
