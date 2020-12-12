@@ -1,9 +1,8 @@
-from tkinter import *
-from tkinter import simpledialog, messagebox
 import serial
+
+from tkinter import *
 from serial import Serial
-# import controller
-import sys
+
 
 # Var for serial port
 serial_port_name = ""

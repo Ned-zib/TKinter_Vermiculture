@@ -1,9 +1,10 @@
-from tkinter import simpledialog, messagebox, Tk
 import serial
-from serial import Serial
 import view
-from model import data
 import sys
+
+from tkinter import simpledialog, messagebox, Tk
+from serial import Serial
+from model import data
 
 
 class serialData():
@@ -54,3 +55,6 @@ class serialData():
             self.data.setData(int(data_temp), int(data_humi), int(
                 data_fan), int(data_heat), int(data_pump))
             return self.data
+
+    def close_port(self):
+        self.serial_port.close()

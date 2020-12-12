@@ -11,9 +11,17 @@ class Controller():
         self.data = data(0, 0, 0, 0, 0)
         self.serial_data = serialData(self.data)
         self.view = View(self.root)
+        self.onClose = 0
+
+    def on_closing(self):
+        print("Exit")
+        self.onClose = 1
+        self.serial_data.close_port()
+        self.root.destroy()
 
     def run(self):
         self.serial_data.serial_connect(self.root)
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.root.after(1, self.set_data())
         self.root.mainloop()
 
@@ -25,8 +33,9 @@ class Controller():
                 self.view.writeFields(self.data, self.root)
         except:
             pass
-        self.root.after(1, self.set_data())
-        
+        if self.onClose == 0:
+            self.root.after(1, self.set_data())
+
 
 if __name__ == "__main__":
     # running controller function
