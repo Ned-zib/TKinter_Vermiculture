@@ -25,6 +25,10 @@ The sensor was manually adapted to be buried on the dirt
 
 The entire system is in a box, half full of organic material and also the worms, we need to keep the system between 12-25°C (53-77°F) and a least 80% of humidity, the Resistive heater is place at the bottom of the box to maintain the temperature in the range, at the side of the box there is a valve to drain the liquid humus at the other side there is the DHT-11 sensor and the fan in the empty half near to the top to keep ventilation active, in the top of the box, the output of the water pump to increase the humidity if is neccesary.
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/Ned-zib/TKinter_Vermiculture/master/images/vermi.png">
+<P>
+
 ### How to run?
 - Run the controller.py file
 
